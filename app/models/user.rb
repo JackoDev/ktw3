@@ -4,6 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :tweets
+  has_many :follower_followships,
+            class_name: "Followship",
+            foreign_key: "follower_id",
+            dependent: :destroy
+
+  has_many :followee_followships,
+            class_name: "Followship",
+            foreign_key: "followee_id",
+            dependent: :destroy
+
+  has_many :followers, through: :followee_followships
+  has_many :followees, through: :follower_followships
 
   validates :name, presence: true,
                       length: { minimum: 4, maximum: 96 }
@@ -17,5 +29,13 @@ class User < ApplicationRecord
                   uniqueness: { case_sensitive: false },
                   length: { maximum: 105 },
                   format: { with: VALID_EMAIL_REGEX }
+
+  def follow(user)
+    followees << user
+  end
+
+  def unfollow(followed_user)
+    followees.delete followed_user
+  end
 
 end
