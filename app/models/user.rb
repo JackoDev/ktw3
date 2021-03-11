@@ -14,8 +14,8 @@ class User < ApplicationRecord
             foreign_key: "followee_id",
             dependent: :destroy
 
-  has_many :followers, through: :followee_followships
   has_many :followees, through: :follower_followships
+  has_many :followers, through: :followee_followships
 
   validates :name, presence: true,
                       length: { minimum: 4, maximum: 96 }

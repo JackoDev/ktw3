@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User</strong><br>
+</p>
+
+<p>
+  <strong>Full Name:</strong><br>
+  <%= @user.name %><br>
+</p>
+
+<p>
+  <strong>Username:</strong><br>
+  <%= @user.username %><br>
+</p>
+
+<div>
+  <strong>Tweets</strong><br>
+  <p>
+    <% @user.tweets.each do |tweet| %>
+      <% # @user.username %>
+      <%= tweet.tweet %><br>
+    <% end %>
+  </p>
+</div>
+
+<div>
+  <strong>Followers</strong>
+  <%= @user.followers.count %>
+  <p>
+    <% @user.followers.each do |f|  %>
+      <%= f.username %><br>
+    <% end %>
+  </p>
+</div>
+
+<div>
+  <strong>Following</strong>
+  <%= @user.followees.count %>
+  <p>
+    <% @user.followees.each do |f| %>
+      <%= f.username %><br>
+    <% end %>
+  </p>
+</div>
+
+<%= link_to 'Back', users_path %>
