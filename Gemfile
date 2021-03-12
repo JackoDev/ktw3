@@ -32,11 +32,13 @@ gem 'bootstrap'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'active_storage_validations', '~> 0.9.2'
+gem 'will_paginate', '~> 3.3'
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
 end
 
 group :development do

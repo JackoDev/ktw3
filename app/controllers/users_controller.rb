@@ -2,8 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
+  # @users = User.paginate(page: params[:page])
+  # User.paginate(page: params[:page], per_page: 10)
+
   def index
     @users = User.all
+    # User.paginate(page: params[:page], per_page: 10)
+
   end
 
   def show

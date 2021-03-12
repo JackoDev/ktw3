@@ -1,0 +1,13 @@
+<li id="tweet-<%= tweet.id %>">
+  ----------------------------------------------------------------------------------------<br>
+  <span class="user"><strong><%= link_to tweet.user.name, tweet.user %> , </strong> </span>
+  <span class="user"><strong>@<%= link_to tweet.user.username, tweet.user %> - </strong> </span>
+
+  <span class="timestamp">
+    Posted <%= time_tag(tweet.created_at) %>
+    <% if current_user == (tweet.user) %>
+      <% link_to "delete", tweet, method: :delete, data: { confirm: "Are You Sure?" } %>
+    <% end %>
+  </span><br>
+  <span class="tweet"><%= tweet.tweet %></span>
+</li>

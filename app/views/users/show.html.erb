@@ -14,39 +14,23 @@
   <%= @user.username %><br>
 </p>
 
-<div>
-  <strong>Tweets</strong><br>
-  <p>
-    <% @user.tweets.each do |tweet| %>
-      <% # @user.username %>
-      <%= tweet.tweet %><br>
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section><br>
+
+
+  <div class="col-md-8">
+    <%= render 'follow_form' if signed_in? %>
+    <% if @user.tweets.any? %>
+    <h3>Tweets ( <%= @user.tweets.count %> )</h3>
+      <% @tweets = Tweet.paginate(page: params[:page], per_page: 10) %>
+
+      <%= render @tweets %>
+      <%= will_paginate @tweets %>
     <% end %>
-  </p>
+  </div>
 </div>
 
-<div>
-  <strong>Followers</strong>
-  <%= @user.followers.count %>
-  <p>
-    <% @user.followers.each do |f|  %>
-      <%= f.username %><br>
-    <% end %>
-  </p>
-</div>
 
-<div>
-  <strong>Following</strong>
-  <%= @user.followees.count %>
-  <p>
-    <% @user.followees.each do |f| %>
-      <%= f.username %><br>
-    <% end %>
-  </p>
-</div>
-
-<div>
-  <button type="button" class="btn btn-success" action="follow">Follow</button>
-  <button type="button" class="btn btn-warning">Unfollow</button>
-</div>
 
 <%= link_to 'Back', users_path %>

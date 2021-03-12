@@ -31,11 +31,11 @@ class User < ApplicationRecord
                   format: { with: VALID_EMAIL_REGEX }
 
   def follow(other_user)
-    followees << user
+    followees << other_user
   end
 
   def unfollow(other_user)
-    followees.delete followed_user
+    followees.delete other__user
   end
 
   def following?(other_user)
