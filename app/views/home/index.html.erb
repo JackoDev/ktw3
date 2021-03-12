@@ -1,0 +1,35 @@
+
+<p>
+  <h1>Esta es tu pagina personal</h1><br>
+  <h4>Aqui encuentras tus tweets y la informacion de tus seguidores: </h4><br>
+</p>
+
+<div>
+  <h5>Conexiones</h5>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Followers</th>
+        <th>Following</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td><%= link_to current_user.followers.count %></td>
+          <td><%= link_to current_user.followees.count %></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h5>Tus tweets</h5>
+
+<% current_user.tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.tweet %></td>
+      </tr><br>
+    <% end %>
+</div>
