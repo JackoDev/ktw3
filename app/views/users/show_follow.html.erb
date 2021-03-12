@@ -1,0 +1,31 @@
+
+
+<section>
+  <h1><%= @user.name %></h1>
+  <span><%= link_to "@#{@user.username}", @user.username %></span>
+  <span><b>Tweets:</b> (<%= @user.tweets.count %>)
+  </span>
+</section>
+
+<div>
+<%= render 'shared/stats'%>
+</div>
+<br>
+
+<div>
+  <h3><%= @title %></h3>
+</div>
+
+<div>
+<% if @users.any? %>
+  <% @users.each do |user| %>
+    <%= link_to "#{user.name}", user %> - 
+    (<%= link_to "@#{user.username}", user %>)
+
+
+    <br>
+    <br>
+  <% end %>
+    <%= will_paginate %>
+<% end %>
+</div>
