@@ -1,3 +1,4 @@
-    <% current_user.self.followers.each do |f|  %>
+    <% followers = current_user.self.followers.order(:name) %>
+      <% followers.each do |f|  %>
       <%= f.name  %>
     <% end %>

@@ -18,9 +18,10 @@
 
 <div>
 <% if @users.any? %>
-  <% @users.each do |user| %>
-    <%= link_to "#{user.name}", user %> - 
-    (<%= link_to "@#{user.username}", user %>)
+  <% @users = @users.order(:name) %>
+    <% @users.each do |user| %>
+      <%= link_to "#{user.name}", user %> - 
+      (<%= link_to "@#{user.username}", user %>)
 
 
     <br>
