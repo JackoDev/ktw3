@@ -30,7 +30,8 @@
   <div class="col-md-8">
     <% if current_user.tweets.any? %>
     <h3> Mis Tweets ( <%= current_user.tweets.count %> )</h3>
-      <% @tweets = current_user.tweets.paginate(page: params[:page], per_page: 10) %>
+       <% @tweets = @user.tweets.all.order(created_at: :desc) %>
+          <% @tweets = @tweets.paginate(page: params[:page], per_page: 10) %>
 
       <%= render @tweets %>
       <%= will_paginate @tweets %>

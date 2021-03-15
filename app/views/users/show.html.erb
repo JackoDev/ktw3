@@ -23,7 +23,8 @@
     <%= render 'follow_form' if signed_in? %>
     <% if @user.tweets.any? %>
     <h3>Tweets ( <%= @user.tweets.count %> )</h3>
-      <% @tweets = @user.tweets.paginate(page: params[:page], per_page: 10) %>
+    <% @tweets = @user.tweets.all.order(created_at: :desc) %>
+      <% @tweets = @tweets.paginate(page: params[:page], per_page: 10) %>
 
       <%= render @tweets %>
       <%= will_paginate @tweets %>
