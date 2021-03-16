@@ -22,9 +22,13 @@
     <% @users.each do |user| %>
       <%= link_to "#{user.name}", user %> - 
       (<%= link_to "@#{user.username}", user %>)
-
-
-    <br>
+      <% if current_user.following?(user)%>
+        <br>
+        <% next %>
+      <% else %>
+        <%= render 'follow' %>
+        <br>
+      <% end %>
     <br>
   <% end %>
     <%= will_paginate %>
