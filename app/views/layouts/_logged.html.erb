@@ -1,25 +1,28 @@
-<ul class="nav">
-  <li class="nav-item">
-    <%= link_to('Home', home_index_path, :class => 'nav-link') %>
-  </li>
+<nav class="nav justify-content-center navbar-light navbar-center bg-success text-white d-flex">
+  <ul class="nav" >
+    <li class="nav-item">
+      <%= link_to('Home', home_index_path, :class => 'nav-link active text-white') %>
+    </li>
 
-  <li class="nav-item">
-    <%= link_to('Feed', tweets_path, :class => 'nav-link') %>
-  </li>
+    <li class="nav-item">
+      <%= link_to('Feed', tweets_path, :class => 'nav-link active text-white') %>
+    </li>
 
-  <li class="nav-item">
-    <%= link_to('Tweet', new_tweet_path, :class => 'nav-link') %>
-  </li>
+    <li class="nav-item">
+      <%= link_to('Tweet', new_tweet_path, :class => 'nav-link active text-white') %>
+    </li>
 
-  <li class="nav-item">
-      <%= link_to('Edit profile', edit_user_registration_path, :class => 'nav-link') %>
-  </li>
+    <li class="nav-item">
+        <%= link_to('Edit profile', edit_user_registration_path, :class => 'nav-link active text-white') %>
+    </li>
 
-  <li class="nav-item">
-    <%= link_to("Logout", destroy_user_session_path, method: :delete, :class => 'nav-link') %>
-  </li>
+    <li class="nav-item">
+      <%= link_to("Logout", destroy_user_session_path, method: :delete, :class => 'nav-link active text-white') %>
+    </li>
 
-</ul>
-<br>
-Logged in as: <strong><%= current_user.username %></strong>.
-<br>
+  </ul>
+</nav>
+
+<p class="text-success bg-light justify-content-end">
+  Logged in as: <strong><%= current_user.username %></strong>.
+</p>
