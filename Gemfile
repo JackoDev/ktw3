@@ -34,6 +34,7 @@ gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'active_storage_validations', '~> 0.9.2'
 gem 'will_paginate', '~> 3.3'
 
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
